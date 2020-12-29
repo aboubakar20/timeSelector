@@ -2,71 +2,16 @@
   <div>
     <h5>Avalable Weeks</h5>
     <div class="week">
-      <div class="days">
+      <div class="days" v-for="weekDay in weekDays" :key="weekDay.id">
         <input
           type="checkbox"
-          id="sunday"
-          value="Sunday"
+          :id="weekDay.day"
+          :value="weekDay.day"
           v-model="checkedDays"
         />
-        <label for="sunday">Sunday</label>
-      </div>
-      <div class="days">
-        <input
-          type="checkbox"
-          id="monday"
-          value="Monday"
-          v-model="checkedDays"
-        />
-        <label for="monday">Monday</label>
-      </div>
-      <div class="days">
-        <input
-          type="checkbox"
-          id="tuesday"
-          value="Tuesday"
-          v-model="checkedDays"
-        />
-        <label for="tuesday">Tuesday</label>
-      </div>
-      <div class="days">
-        <input
-          type="checkbox"
-          id="wednesday"
-          value="Wednesday"
-          v-model="checkedDays"
-        />
-        <label for="wednesday">Wednesday</label>
-      </div>
-      <div class="days">
-        <input
-          type="checkbox"
-          id="thursday"
-          value="Thursday"
-          v-model="checkedDays"
-        />
-        <label for="thursday">Thursday</label>
-      </div>
-      <div class="days">
-        <input
-          type="checkbox"
-          id="friday"
-          value="Friday"
-          v-model="checkedDays"
-        />
-        <label for="friday">Friday</label>
-      </div>
-      <div class="days">
-        <input
-          type="checkbox"
-          id="saturday"
-          value="Saturday"
-          v-model="checkedDays"
-        />
-        <label for="saturday">Saturday</label>
+        <label for="day">{{ weekDay.day }}</label>
       </div>
     </div>
-    <p v-for="(day, index) in checkedDays" :key="index">{{ day }}</p>
   </div>
 </template>
 
@@ -77,17 +22,30 @@ export default {
       checkedDays: [],
     };
   },
-  methods: {},
+  props: ["weekDays"],
   updated() {
-    console.log(this.checkedDays);
+    // for (let weekDay in this.weekDays) {
+    //   console.log(weekDay);
+    // }
+    console.log(this.weekDays);
+    console.log(this.checkedDays[1]);
+    // this.$emit("selectedDays", this.checkedDays);
+  },
+  methods: {
+    // selectDays: function() {
+    //   this.$emit("selectedDays", this.checkedDays);
+    //   console.log(this.checkedDays);
+    // },
   },
 };
 </script>
 
 <style scoped>
 .week {
-  padding: 30px;
-  display: inline-flex;
+  border-radius: 5px;
+  padding: 30px 150px;
+  margin-bottom: 10px;
+  display: flex;
   border: 1px solid;
 }
 .days {
