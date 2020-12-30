@@ -2,7 +2,7 @@
   <div>
     <h5>Avalable Weeks</h5>
     <div class="week">
-      <div class="days" v-for="weekDay in weekDays" :key="weekDay.id">
+      <div class="days" v-for="weekDay in weekDays" :key="'day' + weekDay.id">
         <input
           type="checkbox"
           :id="weekDay.day"
