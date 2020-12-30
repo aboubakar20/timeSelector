@@ -53,6 +53,7 @@ export default {
   methods: {
     getSelectedDays: function(days) {
       this.selectedDays = days;
+      console.log(this.selectedDays);
     },
   },
 };

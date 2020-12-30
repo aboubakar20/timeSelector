@@ -8,6 +8,7 @@
           :id="weekDay.day"
           :value="weekDay.day"
           v-model="checkedDays"
+          @change="selectDays"
         />
         <label for="day">{{ weekDay.day }}</label>
       </div>
@@ -23,19 +24,14 @@ export default {
     };
   },
   props: ["weekDays"],
-  updated() {
-    // for (let weekDay in this.weekDays) {
-    //   console.log(weekDay);
-    // }
-    console.log(this.weekDays);
-    console.log(this.checkedDays[1]);
-    // this.$emit("selectedDays", this.checkedDays);
-  },
+
   methods: {
-    // selectDays: function() {
-    //   this.$emit("selectedDays", this.checkedDays);
-    //   console.log(this.checkedDays);
-    // },
+    selectDays: function() {
+      var sortDaysById = this.checkedDays.sort(function(a, b) {
+        return parseInt(a.id) - parseInt(b.id);
+      });
+      this.$emit("selectedDays", sortDaysById);
+    },
   },
 };
 </script>

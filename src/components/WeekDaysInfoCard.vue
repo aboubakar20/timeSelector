@@ -85,16 +85,6 @@ export default {
     return {};
   },
   props: ["selectedDays"],
-  methods: {},
-  updated() {
-    // console.log(this.selectedDays.indexOf("Sunday"));
-    // let deletedScores = this.selectedDays.splice(0, 1);
-    // console.log(this.selectedDays);
-    // console.log(deletedScores);
-    // if (this.selectedDays === "Sunday") {
-    //   console.log(this.selectedDays);
-    // }
-  },
 };
 </script>
 
