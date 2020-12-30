@@ -6,7 +6,7 @@
         <input
           type="checkbox"
           :id="weekDay.day"
-          :value="weekDay.day"
+          :value="weekDay"
           v-model="checkedDays"
           @change="selectDays"
         />

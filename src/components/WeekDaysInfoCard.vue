@@ -1,7 +1,7 @@
 <template>
   <div class="cards">
-    <div class="card" v-for="(day, index) in selectedDays" :key="index">
-      <h3>{{ day }}</h3>
+    <div class="card" v-for="day in selectedDays" :key="day.id">
+      <h3>{{ day.day }}</h3>
       <div class="text">
         <div class="col">
           <strong>Start Time</strong>
@@ -81,9 +81,6 @@
 
 <script>
 export default {
-  data() {
-    return {};
-  },
   props: ["selectedDays"],
 };
 </script>
