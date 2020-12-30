@@ -4,6 +4,7 @@
       <h3>{{ day.day }}</h3>
       <div class="text">
         <div class="col">
+          <p>{{ time }}</p>
           <strong>Start Time</strong>
           <select>
             <option value="0">12:00 AM</option>
@@ -80,8 +81,19 @@
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
+  data() {
+    return {
+      time: null,
+    };
+  },
   props: ["selectedDays"],
+  updated() {
+    this.time = moment().format("hh mm A");
+    console.log(this.time);
+  },
 };
 </script>
 
