@@ -1,19 +1,61 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Time selector</h1>
+    <WeekDaysSelector
+      @selectedDays="getSelectedDays"
+      :weekDays="weekDays"
+    ></WeekDaysSelector>
+    <WeekDaysInfoCard v-bind:selectedDays="selectedDays"></WeekDaysInfoCard>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import WeekDaysSelector from "./components/WeekDaysSelector";
+import WeekDaysInfoCard from "./components/WeekDaysInfoCard";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    WeekDaysSelector,
+    WeekDaysInfoCard,
+  },
+  data() {
+    return {
+      weekDays: [
+        {
+          id: 0,
+          day: "Sunday",
+        },
+        {
+          id: 1,
+          day: "Monday",
+        },
+        {
+          id: 2,
+          day: "Tuesday",
+        },
+        {
+          id: 3,
+          day: "Wednesday",
+        },
+        {
+          id: 4,
+          day: "Thursday",
+        },
+        { id: 5, day: "Friday" },
+        {
+          id: 6,
+          day: "Saturday",
+        },
+      ],
+      selectedDays: [],
+    };
+  },
+  methods: {
+    getSelectedDays: function(days) {
+      this.selectedDays = days;
+    },
+  },
+};
 </script>
 
 <style>
@@ -23,6 +65,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-left: 150px;
+}
+body {
+  max-width: 1160px;
 }
 </style>
