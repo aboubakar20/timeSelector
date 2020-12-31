@@ -51,8 +51,8 @@ export default {
     };
   },
   methods: {
-    getSelectedDays: function(days) {
-      this.selectedDays = days;
+    getSelectedDays: function() {
+      this.selectedDays;
     },
   },
 };
