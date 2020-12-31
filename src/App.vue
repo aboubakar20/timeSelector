@@ -5,18 +5,15 @@
       @selectedDays="getSelectedDays"
       :weekDays="weekDays"
     ></WeekDaysSelector>
-    <WeekDaysInfoCard v-bind:selectedDays="selectedDays"></WeekDaysInfoCard>
   </div>
 </template>
 
 <script>
 import WeekDaysSelector from "./components/WeekDaysSelector";
-import WeekDaysInfoCard from "./components/WeekDaysInfoCard";
 export default {
   name: "App",
   components: {
     WeekDaysSelector,
-    WeekDaysInfoCard,
   },
   data() {
     return {
