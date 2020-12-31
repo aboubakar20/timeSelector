@@ -4,62 +4,23 @@
       <h3>{{ day.day }}</h3>
       <div class="text">
         <div class="col">
-          <p>{{ time }}</p>
           <strong>Start Time</strong>
           <select>
-            <option value="0">12:00 AM</option>
-            <option value="1">1:00 AM</option>
-            <option value="2">2:00 AM</option>
-            <option value="3">3:00 AM</option>
-            <option value="4">4:00 AM</option>
-            <option value="5">5:00 AM</option>
-            <option value="6">6:00 AM</option>
-            <option value="7">7:00 AM</option>
-            <option value="8">8:00 AM</option>
-            <option value="9">9:00 AM</option>
-            <option value="10">10:00 AM</option>
-            <option value="11">11:00 AM</option>
-            <option value="12">12:00 PM</option>
-            <option value="13">1:00 PM</option>
-            <option value="14">2:00 PM</option>
-            <option value="15">3:00 PM</option>
-            <option value="16">4:00 PM</option>
-            <option value="17">5:00 PM</option>
-            <option value="18">6:00 PM</option>
-            <option value="19">7:00 PM</option>
-            <option value="20">8:00 PM</option>
-            <option value="21">9:00 PM</option>
-            <option value="22">10:00 PM</option>
-            <option value="23">11:00 PM</option>
+            <option
+              v-for="startTime in timeSlot"
+              :key="'startTime' + startTime.value"
+              >{{ startTime.time }}</option
+            >
           </select>
         </div>
         <div class="col ml-auto">
           <strong>End Time</strong>
           <select>
-            <option value="0">12:00 AM</option>
-            <option value="1">1:00 AM</option>
-            <option value="2">2:00 AM</option>
-            <option value="3">3:00 AM</option>
-            <option value="4">4:00 AM</option>
-            <option value="5">5:00 AM</option>
-            <option value="6">6:00 AM</option>
-            <option value="7">7:00 AM</option>
-            <option value="8">8:00 AM</option>
-            <option value="9">9:00 AM</option>
-            <option value="10">10:00 AM</option>
-            <option value="11">11:00 AM</option>
-            <option value="12">12:00 PM</option>
-            <option value="13">1:00 PM</option>
-            <option value="14">2:00 PM</option>
-            <option value="15">3:00 PM</option>
-            <option value="16">4:00 PM</option>
-            <option value="17">5:00 PM</option>
-            <option value="18">6:00 PM</option>
-            <option value="19">7:00 PM</option>
-            <option value="20">8:00 PM</option>
-            <option value="21">9:00 PM</option>
-            <option value="22">10:00 PM</option>
-            <option value="23">11:00 PM</option>
+            <option
+              v-for="endTime in timeSlot"
+              :key="'endTime' + endTime.value"
+              >{{ endTime.time }}</option
+            >
           </select>
           <div class="btn">
             <button>Add Time</button>
@@ -81,19 +42,40 @@
 </template>
 
 <script>
-import moment from "moment";
+// import moment from "moment";
 
 export default {
   data() {
     return {
-      time: null,
+      timeSlot: [
+        { value: "0", time: "12:00 AM" },
+        { value: "1", time: "01:00 AM" },
+        { value: "2", time: "02:00 AM" },
+        { value: "3", time: "03:00 AM" },
+        { value: "4", time: "04:00 AM" },
+        { value: "5", time: "05:00 AM" },
+        { value: "6", time: "06:00 AM" },
+        { value: "7", time: "07:00 AM" },
+        { value: "8", time: "08:00 AM" },
+        { value: "9", time: "09:00 AM" },
+        { value: "10", time: "10:00 AM" },
+        { value: "11", time: "11:00 AM" },
+        { value: "12", time: "12:00 PM" },
+        { value: "13", time: "01:00 PM" },
+        { value: "14", time: "02:00 PM" },
+        { value: "15", time: "03:00 PM" },
+        { value: "16", time: "04:00 PM" },
+        { value: "17", time: "05:00 PM" },
+        { value: "18", time: "06:00 PM" },
+        { value: "19", time: "07:00 PM" },
+        { value: "20", time: "08:00 PM" },
+        { value: "21", time: "09:00 PM" },
+        { value: "22", time: "10:00 PM" },
+        { value: "23", time: "11:00 PM" },
+      ],
     };
   },
   props: ["selectedDays"],
-  updated() {
-    this.time = moment().format("hh mm A");
-    console.log(this.time);
-  },
 };
 </script>
 
